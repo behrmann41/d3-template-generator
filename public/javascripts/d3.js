@@ -67,8 +67,62 @@ function change(data) {
 
   slice.enter()
     .insert("path")
-    .style("fill", function(d) { return color(d.data.label); })
+    .style("fill", function(d) { 
+      // console.log(d);
+      return color(d.data.label); })
     .attr("class", "slice");
+
+    // var tooltipValue = d3.select(this).data.value;
+    var globalD
+
+    var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function() {
+      return "<strong>Value:</strong> <span style='color:red'>" + globalD.data.value + "</span>";
+    })
+
+    svg.call(tip);
+
+
+  slice
+    .on("mouseover", function(d) {
+      globalD = d
+      var endAngle = d.endAngle + 0.2;
+      var startAngle = d.startAngle - 0.2;
+
+      var arcOver = d3.svg.arc()
+        .outerRadius(radius + 9).endAngle(endAngle).startAngle(startAngle);
+
+      var strokeColor = d3.select(this).style("fill");
+
+
+      tip.show()
+      d3.select(this)
+        .style("stroke", strokeColor)
+        .transition()
+        .duration(250)
+        // .attr("d", arcOver)   
+        .style("stroke-width", 15)          
+    })
+    .on("mouseout", function(d) {
+      var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function() {
+        return "";
+      })
+
+      svg.call(tip);
+      tip.hide();
+      d3.select(this)
+        .style("stroke", "none")
+        .transition()
+        .duration(500)
+        // .attr("d", )
+        .style("stroke-width", 0)
+    })
+
 
   slice   
     .transition().duration(1000)
