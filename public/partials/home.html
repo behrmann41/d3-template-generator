@@ -21,10 +21,13 @@ D3 Template Generation System.</h1>
             <input type="number" min='0' ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value">
           </div>
         </div>
-        <button class="remove btn btn-danger" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
+        <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
       </div>
       <div class="form-group">
         <button ng-click='addField()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
+      </div>
+      <div class="form-group">
+        <button ng-click='submit()' class="btn btn-primary" name="button">Add Data</button>
       </div>
     </form>
   </div>
