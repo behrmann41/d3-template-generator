@@ -1,3 +1,3 @@
-app.controller('HomeController', function($scope){
-
-})
+app.controller('HomeController', ['$scope', function($scope){
+  // $scope.welcome = "Lets Get Started!"
+}])
