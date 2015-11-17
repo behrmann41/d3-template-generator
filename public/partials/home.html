@@ -11,66 +11,66 @@ D3 Template Generation System.</h1>
       <div class="form-group">
         <label for="label1" class="col-sm-2 control-label">Label</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="label1" placeholder="Enter First Label">
+          <input type="text" class="form-control" ng-model="label1" name="label1" placeholder="Enter First Label">
         </div>
       </div>
       <div class="form-group">
         <label for="value1" class="col-sm-2 control-label">Value</label>
         <div class="col-sm-10">
-          <input type="number" min='0' class="form-control" id="value1" placeholder="Enter First Value">
+          <input type="number" min='0' class="form-control" ng-model="value1" name="value1" placeholder="Enter First Value">
         </div>
       </div>
       <div class="form-group">
         <label for="label2" class="col-sm-2 control-label">Label</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="label2" placeholder="Enter Second Label">
+          <input type="text" class="form-control" ng-model="label2" name="label2" placeholder="Enter Second Label">
         </div>
       </div>
       <div class="form-group">
         <label for="value2" class="col-sm-2 control-label">Value</label>
         <div class="col-sm-10">
-          <input type="number" min='0' class="form-control" id="value2" placeholder="Enter Second Value">
+          <input type="number" min='0' class="form-control" ng-model="value2" name="value2" placeholder="Enter Second Value">
         </div>
       </div>
       <div class="form-group">
         <label for="label3" class="col-sm-2 control-label">Label</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="label3" placeholder="Enter Third Label">
+          <input type="text" class="form-control" ng-model="label3" name="label3" placeholder="Enter Third Label">
         </div>
       </div>
       <div class="form-group">
         <label for="value3" class="col-sm-2 control-label">Value</label>
         <div class="col-sm-10">
-          <input type="number" min='0' class="form-control" id="value3" placeholder="Enter Third Value">
+          <input type="number" min='0' class="form-control" ng-model="value3" name="value3" placeholder="Enter Third Value">
         </div>
       </div>
       <div class="form-group">
         <label for="label4" class="col-sm-2 control-label">Label</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="label4" placeholder="Enter Fourth Label">
+          <input type="text" class="form-control" ng-model="label4" name="label4" placeholder="Enter Fourth Label">
         </div>
       </div>
       <div class="form-group">
         <label for="value4" class="col-sm-2 control-label">Value</label>
         <div class="col-sm-10">
-          <input type="number" min='0' class="form-control" id="value4" placeholder="Enter Fourth Value">
+          <input type="number" min='0' class="form-control" ng-model="value4" name="value4" placeholder="Enter Fourth Value">
         </div>
       </div>
       <div class="form-group">
         <label for="label5" class="col-sm-2 control-label">Label</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="label5" placeholder="Enter Fifth Label">
+          <input type="text" class="form-control" name="label5" ng-model="label5" placeholder="Enter Fifth Label">
         </div>
       </div>
       <div class="form-group">
         <label for="value5" class="col-sm-2 control-label">Value</label>
         <div class="col-sm-10">
-          <input type="number" min='0' class="form-control" id="value5" placeholder="Enter Fifth Value">
+          <input type="number" min='0' class="form-control" name="value5" ng-model="value5" placeholder="Enter Fifth Value">
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Create Graph</button>
+          <button ng-click="submit()" class="btn btn-default">Create Graph</button>
         </div>
       </div>
     </form>
