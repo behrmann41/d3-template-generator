@@ -2,7 +2,8 @@ var width = 960,
     height = 200;
 
 var nodes = d3.range(200).map(function() { return {radius: Math.random() * 12 + 4}; }),
-    root = nodes[0];
+    root = nodes[0],
+    color = d3.scale.category20c();
 
 root.radius = 0;
 root.fixed = true;
@@ -15,32 +16,29 @@ var force = d3.layout.force()
 
 force.start();
 
-var canvas = d3.select("#headCanvas").append("canvas")
+var svg = d3.select("#headCanvas").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-var context = canvas.node().getContext("2d");
+svg.selectAll("circle")
+    .data(nodes.slice(1))
+  .enter().append("circle")
+    .attr("r", function(d) { return d.radius; })
+    .style("fill", function(d, i) { return color(i % 3); });
 
 force.on("tick", function(e) {
   var q = d3.geom.quadtree(nodes),
-      i,
-      d,
+      i = 0,
       n = nodes.length;
 
-  for (i = 1; i < n; ++i) q.visit(collide(nodes[i]));
+  while (++i < n) q.visit(collide(nodes[i]));
 
-  context.clearRect(0, 0, width, height);
-  context.fillStyle = "steelblue";
-  context.beginPath();
-  for (i = 1; i < n; ++i) {
-    d = nodes[i];
-    context.moveTo(d.x, d.y);
-    context.arc(d.x, d.y, d.radius, 0, 2 * Math.PI);
-  }
-  context.fill();
+  svg.selectAll("circle")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
 });
 
-canvas.on("mousemove", function() {
+svg.on("mousemove", function() {
   var p1 = d3.mouse(this);
   root.px = p1[0];
   root.py = p1[1];
