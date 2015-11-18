@@ -9,19 +9,21 @@ D3 Template Generation System.</h1>
   <div class="col-md-7 col-md-offset-3">
     <form class="form-inline">
       <div data-ng-repeat='choice in inputs'>
-        <div class="form-group">
-          <label for="label1" class="col-md-2 control-label">Label</label>
-          <div class="col-sm-10">
-            <input type="text" ng-model='choice.label1' class="form-control" name="" placeholder="Enter Label">
+        <div class="inputField">
+          <div class="form-group">
+            <label for="label1" class="col-md-2 control-label">Label</label>
+            <div class="col-sm-10">
+              <input type="text" ng-model='choice.label1' class="form-control" name="" placeholder="Enter Label" required>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="value1" class="col-md-2 control-label">Value</label>
-          <div class="col-sm-10">
-            <input type="number" min='0' ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value">
+          <div class="form-group">
+            <label for="value1" class="col-md-2 control-label">Value</label>
+            <div class="col-sm-10">
+              <input type="number" min='0' ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value" required>
+            </div>
           </div>
-        </div>
-        <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
+          <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
+        </div>  
       </div>
         <button ng-click='addField()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
       <!-- <div class="form-group"> -->

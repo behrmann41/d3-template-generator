@@ -33,3 +33,7 @@ a {
 #inputForm {
   margin-top: 50px;
 }
+
+.inputField {
+  padding-bottom: 10px;
+}
