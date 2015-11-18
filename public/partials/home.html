@@ -27,7 +27,7 @@ D3 Template Generation System.</h1>
       <!-- <div class="form-group"> -->
       <!-- </div> -->
       <!-- <div class="form-group"> -->
-        <button ng-click='submit()' class="btn btn-primary" name="button">Add Data</button>
+        <button ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Add Data</button>
       <!-- </div> -->
     </form>
   </div>
@@ -38,6 +38,8 @@ D3 Template Generation System.</h1>
       <div id="bodyCanvas">
   <!-- insert created d3 image here  -->
       </div>
+      <button ng-show="hidden" ng-click="snippit = ! snippit" type="button" class="btn btn-info">Show/Hide</button>
+      <code-snippit ng-show="snippit"></code-snippit>
     </div>
   </div>
 </div>

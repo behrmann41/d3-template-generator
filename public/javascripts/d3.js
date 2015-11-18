@@ -1,3 +1,6 @@
+var inputLabels;
+var inputValues;
+
 var formData = require('controllers.js')
 
 var svg = d3.select("#bodyCanvas")
