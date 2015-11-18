@@ -15,11 +15,12 @@ app.controller('HomeController', ['$scope', function($scope){
       inputLabels.push(input.label1)
       inputValues.push(input.value1)
     })
+
     // var formExportToD3 = {labels: labels, inputValues: values}
 
-  // this seems bad
+    // this seems bad
 
-  // var formData = require('controllers.js')
+    // var formData = require('controllers.js')
 
     var svg = d3.select("#bodyCanvas")
       .append("svg")
@@ -102,7 +103,7 @@ app.controller('HomeController', ['$scope', function($scope){
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function() {
-          return "<strong>Value:</strong> <span style='color:red'>" + globalD.data.value + "</span>";
+          return "<strong><em>" + globalD.data.label +":</em></strong> " + globalD.data.value;
         })
 
         svg.call(tip);
