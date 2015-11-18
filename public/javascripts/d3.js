@@ -1,6 +1,6 @@
-require()
+var formData = require('controllers.js')
 
-var svg = d3.select("body")
+var svg = d3.select("#bodyCanvas")
   .append("svg")
   .append("g")
 
@@ -34,7 +34,7 @@ svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 var key = function(d){ return d.data.label; };
 
 var color = d3.scale.ordinal()
-  .domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
+  .domain(formData.labels)
   .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 
@@ -42,7 +42,7 @@ var color = d3.scale.ordinal()
 function dataObjectCreator (){
   var labels = color.domain();
 
-  var values = [12,45,33,42,56,21,15,15,66,33,11]
+  var values = formData.values
   var index = -1
 
   return labels.map(function(label){
