@@ -5,6 +5,14 @@ app.config(function($locationProvider, $routeProvider){
       templateUrl: '/partials/home.html',
       controller: 'HomeController'
     })
+    .when('/signup', {
+      templateUrl: '/partials/signup.html',
+      controller: "LoginController"
+    })
+    .when('/signin', {
+      templateUrl: '/partials/signin.html',
+      controller: "LoginController"
+    })
 })
 
 // commented out to check if partial was preventing d3 

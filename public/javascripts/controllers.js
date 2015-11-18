@@ -231,3 +231,16 @@ app.controller('HomeController', ['$scope', function($scope){
 
   }
 }])
+
+app.controller('LoginController', ["$scope", function($scope){
+
+  $scope.signup = function(signupForm) {
+    console.log(signupForm)
+  }
+
+  $scope.signin = function(signinForm) {
+    console.log(signinForm)
+  }
+
+}])
+

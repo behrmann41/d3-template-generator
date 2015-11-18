@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <base href="/"/>
   </head>
   <body>
     <div class="row">
@@ -28,20 +29,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">grafique</a>
+          <a class="navbar-brand" href="/">grafique</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/signin">Sign In</a></li>
               </ul>
             </li>
           </ul>
@@ -58,6 +55,5 @@
   <script type="text/javascript" src='javascripts/controllers.js'></script>
   <script type="text/javascript" src='javascripts/ballpit.js'></script>
   <!-- // <script type="text/javascript" src="javascripts/d3.js"></script> -->
-  <base href="/"/>
   </body>
 </html>
