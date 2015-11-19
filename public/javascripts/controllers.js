@@ -1,8 +1,8 @@
 app.controller('HomeController', ['$scope', '$http', function($scope, $http){
   if (localStorage.getItem("userId")) {
     var id = localStorage.getItem("userId");
-    $http.get("/users/me", {user: id}).then(function(response) {
-      console.log(response, "res from localStorage get")
+    $http.post('/users/me',{user: id}).then(function(response) {
+      $scope.username = response.data.rows[0].email
     }, function() {
       // error
     })
