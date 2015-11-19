@@ -257,7 +257,6 @@ app.controller('LoginController', ["$scope","$http", "$location", "$cookieStore"
 
   $scope.signup = function(signupForm) {
     $http.post('/users/signup', {user: signupForm}).then(function (response){
-      console.log(response, " is the response");
       localStorage.setItem("userId", response.data.rows[0].id)
       $location.path("/");
     }, function(){
@@ -266,7 +265,12 @@ app.controller('LoginController', ["$scope","$http", "$location", "$cookieStore"
   }
 
   $scope.signin = function(signinForm) {
-    console.log(signinForm)
+    $http.post('/users/signin', {user: signinForm}).then(function (response){
+      localStorage.setItem("userId", response.data.rows[0].id)
+      $location.path("/")
+    }, function (){
+      console.log('error')
+    });
   }
 
 }]).directive('compareTo', function() {
