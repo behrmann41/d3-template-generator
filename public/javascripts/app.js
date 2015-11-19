@@ -1,1 +1,1 @@
-var app = angular.module('grafique', ['ngRoute', 'ngMessages']);
+var app = angular.module('grafique', ['ngRoute', 'ngMessages','ngCookies']);
