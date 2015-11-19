@@ -6,7 +6,14 @@ app.controller('HomeController', ['$scope', function($scope){
   }
   $scope.removeField = function (){
     var lastItem = $scope.inputs.length-1;
-    $scope.inputs.splice(lastItem);
+    if (!$scope.inputs[lastItem-1]) return;
+    else $scope.inputs.splice(lastItem);
+  }
+  $scope.colorScheme = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
+  $scope.addColor = function(colorArray) {
+    $scope.colorScheme = colorArray;
+    // set the colors in the code snippit
+    // give it a border with angular
   }
   $scope.submit = function (){
     $scope.inputLabels = []
@@ -15,6 +22,8 @@ app.controller('HomeController', ['$scope', function($scope){
       $scope.inputLabels.push(input.label1)
       $scope.inputValues.push(input.value1)
     })
+
+    // $scope.colorScheme = [];
 
     var svg = d3.select("#bodyCanvas")
       .append("svg")
@@ -48,10 +57,11 @@ app.controller('HomeController', ['$scope', function($scope){
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     var key = function(d){ return d.data.label; };
+    console.log($scope.colorScheme)
 
     var color = d3.scale.ordinal()
       .domain($scope.inputLabels)
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range($scope.colorScheme);
 
     function dataObjectCreator (){
       var labels = color.domain();

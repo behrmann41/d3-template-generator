@@ -26,14 +26,23 @@ D3 Template Generation System.</h1>
             </div>
           </div>
           <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
+          <button ng-show="$last" ng-click='addField()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
         </div>  
       </div>
-        <button ng-click='addField()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
+        <p class="lead text-center">Choose your main color scheme: 
+        <span style="background-color:#36B6FF" ng-click="addColor(['#2941FF', '#266FE8', '#36B6FF', '#26D5E8', '#29FFD9'])" class="swatch"></span> 
+        <span style="background-color:#FFD32F" ng-click="addColor(['#FFFD23', '#E8D21F', '#FFD32F', '#E8A91F', '#FFA423'])" class="swatch"></span> 
+        <span style="background-color:#FF5525" ng-click="addColor(['#7F2B12', '#FF9171', '#FF5525', '#7F4839', '#CC441D'])" class="swatch"></span> 
+        <span style="background-color:#84FF10" ng-click="addColor(['#427F08', '#ACFF5D', '#84FF10', '#567F2E', '#6ACC0D'])" class="swatch"></span> 
+        <span style="background-color:#FB94FF" ng-click="addColor(['#FF878F', '#E87BB8', '#FB94FF', '#C67BE8', '#B987FF'])" class="swatch"></span>
+        </p>
       <!-- <div class="form-group"> -->
       <!-- </div> -->
       <!-- <div class="form-group"> -->
-        <button ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Add Data</button>
-      <!-- </div> -->
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <button ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Generate</button>
+        </div>
     </form>
   </div>
 </div>
