@@ -22,7 +22,7 @@ D3 Template Generation System.</h1>
           <div class="form-group">
             <label for="value1" class="col-md-2 control-label">Value</label>
             <div class="col-sm-10">
-              <input type="number" min='0' ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value" required>
+              <input type="number" min='0'  ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value" required>
             </div>
           </div>
           <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
@@ -41,7 +41,7 @@ D3 Template Generation System.</h1>
       <!-- <div class="form-group"> -->
         <div class="col-md-4"></div>
         <div class="col-md-2">
-          <button ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Generate</button>
+          <button ng-disabled="chartForm.$invalid" ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Generate</button>
         </div>
     </form>
   </div>
