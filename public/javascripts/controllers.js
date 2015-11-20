@@ -1,8 +1,8 @@
-app.controller('HomeController', ['$scope', '$http','$location', function($scope, $http, $location){
+app.controller('HomeController', ['$scope', '$http','$location', '$rootScope', function($scope, $http, $location, $rootScope){
   if (localStorage.getItem("userId")) {
     var id = localStorage.getItem("userId");
     $http.post('/users/me',{user: id}).then(function(response) {
-      $scope.username = response.data.rows[0].email
+      $rootScope.username = response.data.rows[0].email
       console.log($scope.username)
     }, function() {
       // error
@@ -30,6 +30,7 @@ app.controller('HomeController', ['$scope', '$http','$location', function($scope
 
   $scope.logout = function (){
     localStorage.clear();
+    $rootScope.username = ''
     $location.path('/')
   }
 
