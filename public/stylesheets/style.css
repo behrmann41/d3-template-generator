@@ -42,3 +42,7 @@ polyline{
 .inputField {
   padding-bottom: 10px;
 }
+
+.logout {
+  cursor: pointer;
+}

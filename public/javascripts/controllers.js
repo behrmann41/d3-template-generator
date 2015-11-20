@@ -1,8 +1,10 @@
-app.controller('HomeController', ['$scope', '$http', function($scope, $http){
+app.controller('HomeController', ['$scope', '$http','$location', '$rootScope', function($scope, $http, $location, $rootScope){
   if (localStorage.getItem("userId")) {
     var id = localStorage.getItem("userId");
     $http.post('/users/me',{user: id}).then(function(response) {
       $scope.username = response.data.rows[0].email
+      $rootScope.username = response.data.rows[0].email
+      console.log($scope.username)
     }, function() {
       // error
     })
@@ -26,6 +28,27 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
     // set the colors in the code snippit
     // give it a border with angular
   }
+
+  $scope.logout = function (){
+    localStorage.clear();
+    $rootScope.username = ''
+    $location.path('/')
+  }
+
+  // form reset
+
+  // $scope.choice = {}
+  // $scope.form = {}
+
+  // var oriChoice = angular.copy($scope.choice);
+
+  // $scope.resetForm = function ()
+  // {
+  //   // $scope.choice = angular.copy(oriChoice);
+  //   // console.log(oriChoice)
+  //   $scope.choice = {}
+  //   $scope.form.chartForm.$setPristine();
+  // };
 
   $scope.isChartFormChanged = function ()
   {
