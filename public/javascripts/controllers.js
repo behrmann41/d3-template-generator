@@ -143,13 +143,6 @@ app.controller('HomeController', ['$scope', '$http','$location', '$rootScope', f
             .style("stroke-width", 15);
         })
         .on("mouseout", function(d) {
-          var tip = d3.tip()
-          .attr('class', 'd3-tip')
-          .offset([-10, 0])
-          .html(function() {
-            return "";
-          });
-
           svg.call(tip);
           tip.hide();
           d3.select(this)
