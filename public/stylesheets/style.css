@@ -47,15 +47,6 @@ polyline{
   cursor: pointer;
 }
 
-.labels {
-  color: white !important;
-}
-
-text {
-  color: white !important;
-  fill: white;
-}
-
 .labels > text {
   color: white;
   fill: white;

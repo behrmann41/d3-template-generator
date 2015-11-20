@@ -2,33 +2,37 @@
 <p class="lead">Enter the labels and number values of your best data below</p>
 
 <div id="inputForm" class="row">
-  <div class="col-md-7 col-md-offset-3">
-    <form class="form-inline" name='chartForm'>
+  <div class="col-md-8 col-md-offset-2">
+    <form class="form-inline form-horizontal" name='chartForm'>
       <div data-ng-repeat='choice in inputs'>
         <div class="inputField">
           <div class="form-group">
             <label for="label1" class="col-md-2 control-label">Label</label>
             <div class="col-sm-10">
-              <input type="text" ng-model='choice.label1' class="form-control" name="" placeholder="Enter Label" required>
+              <input type="text" ng-model='choice.label1' class="form-control" name="" placeholder="Enter label" required>
             </div>
           </div>
           <div class="form-group">
             <label for="value1" class="col-md-2 control-label">Value</label>
             <div class="col-sm-10">
-              <input type="number" min='0'  ng-model='choice.value1' class="form-control" name="" placeholder="Enter Value" required>
+              <input type="number" min='0'  ng-model='choice.value1' class="form-control" name="" placeholder="Enter value" required>
             </div>
           </div>
           <button class="remove btn btn-default" ng-show="$last" ng-click="removeField()"><i class="fa fa-minus"></i></button>
           <button ng-show="$last" ng-click='addField()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
         </div>  
       </div>
-        <p class="lead text-center">Choose your main color scheme: 
-        <span style="background-color:#36B6FF" ng-click="addColor(['#2941FF', '#266FE8', '#36B6FF', '#26D5E8', '#29FFD9'])" class="swatch"></span> 
-        <span style="background-color:#FFD32F" ng-click="addColor(['#FFFD23', '#E8D21F', '#FFD32F', '#E8A91F', '#FFA423'])" class="swatch"></span> 
-        <span style="background-color:#FF5525" ng-click="addColor(['#7F2B12', '#FF9171', '#FF5525', '#7F4839', '#CC441D'])" class="swatch"></span> 
-        <span style="background-color:#84FF10" ng-click="addColor(['#427F08', '#ACFF5D', '#84FF10', '#567F2E', '#6ACC0D'])" class="swatch"></span> 
-        <span style="background-color:#FB94FF" ng-click="addColor(['#FF878F', '#E87BB8', '#FB94FF', '#C67BE8', '#B987FF'])" class="swatch"></span>
-        </p>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <p class="lead">Choose your main color scheme: 
+          <span style="background-color:#36B6FF" ng-click="addColor(['#2941FF', '#266FE8', '#36B6FF', '#26D5E8', '#29FFD9'])" class="swatch"></span> 
+          <span style="background-color:#FFD32F" ng-click="addColor(['#FFFD23', '#E8D21F', '#FFD32F', '#E8A91F', '#FFA423'])" class="swatch"></span> 
+          <span style="background-color:#FF5525" ng-click="addColor(['#7F2B12', '#FF9171', '#FF5525', '#7F4839', '#CC441D'])" class="swatch"></span> 
+          <span style="background-color:#84FF10" ng-click="addColor(['#427F08', '#ACFF5D', '#84FF10', '#567F2E', '#6ACC0D'])" class="swatch"></span> 
+          <span style="background-color:#FB94FF" ng-click="addColor(['#FF878F', '#E87BB8', '#FB94FF', '#C67BE8', '#B987FF'])" class="swatch"></span>
+          </p>
+        </div>
+      </div>
       <!-- <div class="form-group"> -->
       <!-- </div> -->
       <!-- <div class="form-group"> -->
@@ -45,9 +49,14 @@
       <div id="bodyCanvas" ng-model="bodyCanvas">
   <!-- insert created d3 image here  -->
       </div>
-      <div ng-show="svgExists">
-        <button type="button" class="btn btn-primary" ng-click="snippit = !snippit">Show/Hide Code Snippit</button>
+      <div ng-show="svgExists" class="row">
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" ng-click="snippit = !snippit">Show/Hide Code Snippit</button>
+        </div>
       </div>
+      <p ng-show="snippit">Include this code in a script tag. Make sure you include the d3 and d3-tool-tip libraries and add a "bodyCanvas" id to the div where you want your chart to appear. Nice!</p>
       <code-snippit ng-show="snippit"></code-snippit>
     </div>
   </div>
