@@ -28,15 +28,34 @@ router.post('/signup', function(req, res, next) {
 });
 
 router.post('/me', function (req, res, next){
-  console.log(req.body, "BODY!!!")
   pg.connect(conString, function (err, client, done){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     client.query('SELECT * FROM users where id = $1',[req.body.user], function(err, result) {
       done();
-      console.log(result.rows[0].email);
       res.status(200).json(result);
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  })
+})
+
+router.post('/signin', function (req, res, next){
+  console.log(req.body, "BODY!!!")
+  pg.connect(conString, function (err, client, done){
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM users where email = $1',[req.body.user.email], function(err, result) {
+      done();
+      if (bcrypt.compareSync(req.body.user.password, result.rows[0].password)){
+        console.log(result, "RESULT")
+        res.status(200).json(result);
+      } else {
+        res.status(404).end()
+      }
       if (err) {
         return console.error('error running query', err);
       }
