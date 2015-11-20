@@ -47,4 +47,6 @@ polyline{
   cursor: pointer;
 }
 
-
+.labels {
+  color: white;
+}
