@@ -28,21 +28,6 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
     // give it a border with angular
   }
 
-  // form reset
-
-  // $scope.choice = {}
-  // $scope.form = {}
-
-  // var oriChoice = angular.copy($scope.choice);
-
-  // $scope.resetForm = function ()
-  // {
-  //   // $scope.choice = angular.copy(oriChoice);
-  //   // console.log(oriChoice)
-  //   $scope.choice = {}
-  //   $scope.form.chartForm.$setPristine();
-  // };
-
   $scope.isChartFormChanged = function ()
   {
     return !angular.equals($scope.choice, oriChoice);
@@ -50,6 +35,9 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
 
 
   $scope.submit = function (){
+    if ()
+
+
     $scope.inputLabels = []
     $scope.inputValues = []
     $scope.inputs.forEach(function(input){
