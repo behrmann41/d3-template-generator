@@ -30,7 +30,7 @@ path.slice{
 
 polyline{
   opacity: .3;
-  stroke: black;
+  stroke: white;
   stroke-width: 2px;
   fill: none;
 }
@@ -45,4 +45,9 @@ polyline{
 
 .logout {
   cursor: pointer;
+}
+
+.labels > text {
+  color: white;
+  fill: white;
 }
