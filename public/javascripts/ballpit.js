@@ -3,7 +3,9 @@ var width = 960,
 
 var nodes = d3.range(200).map(function() { return {radius: Math.random() * 12 + 4}; }),
     root = nodes[0],
-    color = d3.scale.category20c();
+    // color = ["#ECA110", "#F68E10", "#DF691A", "#F64B10"];
+    color = d3.scale.ordinal()
+      .range(["#ECA110", "#F68E10", "#DF691A", "#F64B10"]);
 
 root.radius = 0;
 root.fixed = true;
