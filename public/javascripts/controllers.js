@@ -34,8 +34,6 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
 
 
   $scope.submit = function (){
-    if ()
-
 
     $scope.inputLabels = []
     $scope.inputValues = []
