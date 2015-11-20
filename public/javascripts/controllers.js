@@ -67,6 +67,10 @@ app.controller('HomeController', ['$scope', '$http','$location', '$rootScope', f
 
     $scope.inputs = [{label: "choice.label1", value: 'choice.value1' }]
 
+    d3.select("svg").remove();
+
+    $scope.svgExists = true;
+
     var svg = d3.select("#bodyCanvas")
       .append("svg")
       .append("g");

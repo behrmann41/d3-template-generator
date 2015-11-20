@@ -41,7 +41,7 @@ D3 Template Generation System.</h1>
       <!-- <div class="form-group"> -->
         <div class="col-md-4"></div>
         <div class="col-md-2">
-          <button ng-disabled="chartForm.$invalid" ng-click='submit();hidden = ! hidden' class="btn btn-primary" name="button">Generate</button>
+          <button ng-disabled="chartForm.$invalid" ng-click='submit()' class="btn btn-primary" name="button">Generate</button>
         </div>
     </form>
   </div>
@@ -52,7 +52,9 @@ D3 Template Generation System.</h1>
       <div id="bodyCanvas" ng-model="bodyCanvas">
   <!-- insert created d3 image here  -->
       </div>
-      <button ng-show="hidden" ng-click="snippit = ! snippit" type="button" class="btn btn-info">Show/Hide</button>
+      <div ng-show="svgExists">
+        <button type="button" class="btn btn-info" ng-click="snippit = !snippit">Show/Hide Code Snippit</button>
+      </div>
       <code-snippit ng-show="snippit"></code-snippit>
     </div>
   </div>
