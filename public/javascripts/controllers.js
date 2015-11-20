@@ -1,4 +1,4 @@
-app.controller('HomeController', ['$scope', '$http', function($scope, $http){
+app.controller('HomeController', ['$scope', '$http','$location', function($scope, $http, $location){
   if (localStorage.getItem("userId")) {
     var id = localStorage.getItem("userId");
     $http.post('/users/me',{user: id}).then(function(response) {
@@ -26,6 +26,11 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
     $scope.colorScheme = colorArray;
     // set the colors in the code snippit
     // give it a border with angular
+  }
+
+  $scope.logout = function (){
+    localStorage.clear();
+    $location.path('/')
   }
 
   // form reset
